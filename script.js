@@ -1,111 +1,183 @@
-<!-- Primary SEO Meta Tags -->
-<title>ProTools Hub — Free Online Developer & PDF Utilities</title>
-<meta name="title" content="ProTools Hub — Free Online Developer & PDF Utilities">
-<meta name="description" content="Lightning-fast, secure, and free online developer tools including Password Generator, QR Code Generator, Text Converter, and PDF Creator.">
-<meta name="keywords" content="developer tools, free utilities, password generator, qr code generator, pdf generator, protools hub">
-<link rel="canonical" href="https://protools-hub-sepia.vercel.app/">
+let currentQRText = "";
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- FontAwesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<!-- Custom CSS -->
-<link rel="stylesheet" href="style.css">
-<!-- QR Code Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<!-- jsPDF Library for PDF Generation -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+// 1. Password Generator Logic
+function generatePassword() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*!_";
+    let password = "";
+    const length = 14;
+    for (let i = 0; i < length; i++) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById("passwordOutput").value = password;
+}
 
+document.getElementById("copyPasswordBtn").addEventListener("click", () => {
+    const pwdInput = document.getElementById("passwordOutput");
+    if (!pwdInput.value) return;
+    navigator.clipboard.writeText(pwdInput.value);
+    showToast("Password copied to clipboard!");
+});
 
-<header class="header">
-    <div class="logo">
-        <i class="fa-solid fa-layer-group"></i>
-        <span>ProTools<span class="highlight">Hub</span></span>
-    </div>
-    <p class="tagline">Lightning-fast, secure, and professional developer utilities.</p>
-</header>
+// 2. QR Code Generator Logic
+function generateQRCode() {
+    const qrContainer = document.getElementById("qrcode");
+    const textValue = document.getElementById("qrInput").value;
+    const downloadBtn = document.getElementById("downloadQrBtn");
+    
+    qrContainer.innerHTML = "";
+    
+    if (textValue.trim() !== "") {
+        currentQRText = textValue;
+        new QRCode(qrContainer, {
+            text: textValue,
+            width: 90,
+            height: 90,
+            colorDark: "#0b0f19",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        if(downloadBtn) downloadBtn.style.display = "flex";
+    } else {
+        qrContainer.innerHTML = `<span style="color:#6b7280; font-size:0.8rem;">Preview will appear here</span>`;
+        if(downloadBtn) downloadBtn.style.display = "none";
+        currentQRText = "";
+    }
+}
 
-<main class="container">
-    <!-- Tool 1: Password Generator -->
-    <div class="card">
-        <div class="card-header">
-            <i class="fa-solid fa-key"></i>
-            <h2>Password Generator</h2>
-        </div>
-        <p class="card-desc">Generate secure, randomized cryptographic passwords instantly.</p>
-        <div class="output-box">
-            <input type="text" id="passwordOutput" readonly placeholder="Click generate...">
-            <button id="copyPasswordBtn" title="Copy to Clipboard"><i class="fa-regular fa-copy"></i></button>
-        </div>
-        <button class="btn primary-btn" onclick="generatePassword()">
-            <i class="fa-solid fa-bolt"></i> Generate Password
-        </button>
-    </div>
+// Download QR Code with Text Labeling via Canvas
+function downloadQRCode() {
+    const qrImg = document.querySelector("#qrcode img");
+    if (!qrImg || !currentQRText) return;
 
-    <!-- Tool 2: QR Code Generator -->
-    <div class="card">
-        <div class="card-header">
-            <i class="fa-solid fa-qrcode"></i>
-            <h2>QR Code Generator</h2>
-        </div>
-        <p class="card-desc">Convert any link or text into a scannable high-res QR code with text labels.</p>
-        <div class="input-group">
-            <input type="text" id="qrInput" placeholder="Enter text or URL...">
-        </div>
-        <div id="qrcode" class="qr-preview"></div>
-        <div class="btn-grid">
-            <button class="btn primary-btn" onclick="generateQRCode()">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> Generate
-            </button>
-            <button class="btn action-btn" id="downloadQrBtn" onclick="downloadQRCode()" style="display:none;">
-                <i class="fa-solid fa-download"></i> Download
-            </button>
-        </div>
-    </div>
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
-    <!-- Tool 3: Text Converter -->
-    <div class="card">
-        <div class="card-header">
-            <i class="fa-solid fa-file-pen"></i>
-            <h2>Text Converter</h2>
-        </div>
-        <p class="card-desc">Manipulate casing, format text, and check character metrics.</p>
-        <div class="input-group">
-            <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
-        </div>
-        <div class="btn-grid">
-            <button class="btn action-btn uppercase" onclick="convertToUpperCase()">
-                <i class="fa-solid fa-arrow-up"></i> UPPER
-            </button>
-            <button class="btn action-btn lowercase" onclick="convertToLowerCase()">
-                <i class="fa-solid fa-arrow-down"></i> lower
-            </button>
-        </div>
-    </div>
+    canvas.width = 300;
+    canvas.height = 360;
 
-    <!-- Tool 4: PDF Generator -->
-    <div class="card">
-        <div class="card-header">
-            <i class="fa-solid fa-file-pdf"></i>
-            <h2>PDF Generator</h2>
-        </div>
-        <p class="card-desc">Type your notes or document text and export directly as a clean PDF file.</p>
-        <div class="input-group">
-            <textarea id="pdfInput" placeholder="Enter document content to export as PDF..."></textarea>
-        </div>
-        <button class="btn primary-btn" onclick="generatePDF()">
-            <i class="fa-solid fa-file-arrow-down"></i> Download PDF
-        </button>
-    </div>
-</main>
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-<footer class="footer">
-    <p>© 2026 ProTools Hub. Crafted for peak efficiency.</p>
-</footer>
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = qrImg.src;
+    img.onload = function() {
+        ctx.drawImage(img, 50, 40, 200, 200);
 
-<!-- Toast Notification -->
-<div id="toast" class="toast">Copied to clipboard!</div>
+        ctx.fillStyle = "#0b0f19";
+        ctx.font = "bold 14px 'Plus Jakarta Sans', sans-serif";
+        ctx.textAlign = "center";
+        
+        let displayText = currentQRText;
+        if (displayText.length > 28) {
+            displayText = displayText.substring(0, 25) + "...";
+        }
+        
+        ctx.fillText("Data: " + displayText, canvas.width / 2, 270);
 
-<script src="script.js"></script>
+        ctx.fillStyle = "#6b7280";
+        ctx.font = "11px 'Plus Jakarta Sans', sans-serif";
+        ctx.fillText("Generated via ProTools Hub", canvas.width / 2, 300);
 
+        const link = document.createElement("a");
+        link.download = "qrcode-protools.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        showToast("QR Code downloaded successfully!");
+    };
+}
 
+// 3. Text Converter Logic
+function convertToUpperCase() {
+    const txtArea = document.getElementById("textInput");
+    if(!txtArea.value) return;
+    txtArea.value = txtArea.value.toUpperCase();
+    showToast("Converted to UPPERCASE");
+}
+
+function convertToLowerCase() {
+    const txtArea = document.getElementById("textInput");
+    if(!txtArea.value) return;
+    txtArea.value = txtArea.value.toLowerCase();
+    showToast("Converted to lowercase");
+}
+
+// 4. PDF Generator Logic
+function generatePDF() {
+    const content = document.getElementById("pdfInput").value;
+    if (!content.trim()) {
+        showToast("Please enter some text to export!");
+        return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.setTextColor(99, 102, 241);
+    doc.text("ProTools Hub Document", 20, 20);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.setTextColor(100, 100, 100);
+    doc.text("Generated securely via ProTools Hub", 20, 28);
+
+    doc.setDrawColor(200, 200, 200);
+    doc.line(20, 34, 190, 34);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+    doc.setTextColor(20, 20, 20);
+    
+    const splitText = doc.splitTextToSize(content, 170);
+    doc.text(splitText, 20, 45);
+
+    doc.save("protools-document.pdf");
+    showToast("PDF downloaded successfully!");
+}
+
+// Set initial QR preview state
+document.getElementById("qrcode").innerHTML = `<span style="color:#6b7280; font-size:0.8rem;">Preview will appear here</span>`;
+
+// Live Tool Search Filter
+function filterTools() {
+    const query = document.getElementById("toolSearch").value.toLowerCase();
+    const cards = document.querySelectorAll(".tools-grid .card");
+
+    cards.forEach(card => {
+        const name = card.getAttribute("data-name");
+        if (name.includes(query)) {
+            card.style.display = "flex";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+// Category Filter Tabs
+function filterCategory(category) {
+    const buttons = document.querySelectorAll(".category-tabs .cat-btn");
+    buttons.forEach(btn => btn.classList.remove("active"));
+    event.target.classList.add("active");
+
+    const cards = document.querySelectorAll(".tools-grid .card");
+    cards.forEach(card => {
+        const categories = card.getAttribute("data-category");
+        if (category === "all" || categories.includes(category)) {
+            card.style.display = "flex";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+// Toast Notification Helper
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2000);
+}
