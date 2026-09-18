@@ -1,0 +1,163 @@
+/* Global Reset & Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Main Layout Grid (Responsive for Mobile & Desktop) */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    flex: 1;
+}
+
+/* Glassmorphism / Modern Card Styling */
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 8px;
+}
+
+/* Outputs & Inputs */
+.output-box {
+    background: #f8f9fa;
+    border: 1px dashed #cbd5e1;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 1rem;
+    word-break: break-all;
+    margin-bottom: 15px;
+    color: #475569;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #007bff;
+}
+
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.primary-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.uppercase-btn {
+    background-color: #0ea5e9;
+    color: white;
+}
+.uppercase-btn:hover { background-color: #0284c7; }
+
+.lowercase-btn {
+    background-color: #10b981;
+    color: white;
+}
+.lowercase-btn:hover { background-color: #059669; }
+
+/* QR Output Container */
+.qr-output {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+    font-size: 0.9rem;
+    border-top: 1px solid #e2e8f0;
+    background: #ffffff;
+    margin-top: auto;
+}
