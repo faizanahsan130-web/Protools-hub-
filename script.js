@@ -65,3 +65,9 @@ function showToast(message) {
         toast.classList.remove("show");
     }, 2000);
 }
+.card .btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: auto;
+}

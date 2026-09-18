@@ -88,3 +88,23 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!-- Tool 2: QR Code Generator -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-qrcode"></i>
+                <h2>QR Code Generator</h2>
+            </div>
+            <p class="card-desc">Convert any link or text into a scannable high-res QR code.</p>
+            <div class="input-group">
+                <input type="text" id="qrInput" placeholder="Enter text or URL...">
+            </div>
+            <div id="qrcode" class="qr-preview"></div>
+            <div class="btn-grid">
+                <button class="btn primary-btn" onclick="generateQRCode()">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generate
+                </button>
+                <button class="btn action-btn" id="downloadQrBtn" onclick="downloadQRCode()" style="display:none;">
+                    <i class="fa-solid fa-download"></i> Download
+                </button>
+            </div>
+        </div>
