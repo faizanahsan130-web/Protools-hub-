@@ -3,58 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProTools - Free Online Utility Hub</title>
-    <!-- External CSS -->
+    <title>ProTools Hub — Advanced Developer & Utility Suite</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- QR Code Library CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
-
-    <!-- Header Section -->
+    <div class="bg-glow"></div>
+    
     <header class="header">
-        <h1>ProTools Hub</h1>
-        <p>Fast, secure, and free online utility tools for everyday tasks.</p>
+        <div class="logo">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>ProTools<span class="highlight">Hub</span></span>
+        </div>
+        <p class="tagline">Lightning-fast, secure, and professional developer utilities.</p>
     </header>
 
-    <!-- Main Container -->
     <main class="container">
-        
-        <!-- 1. Password Generator Card -->
+        <!-- Tool 1: Password Generator -->
         <div class="card">
-            <h2>Password Generator</h2>
+            <div class="card-header">
+                <i class="fa-solid fa-key"></i>
+                <h2>Password Generator</h2>
+            </div>
+            <p class="card-desc">Generate secure, randomized cryptographic passwords instantly.</p>
             <div class="output-box">
-                <span id="passwordDisplay">Click Generate</span>
+                <input type="text" id="passwordOutput" readonly placeholder="Click generate...">
+                <button id="copyPasswordBtn" title="Copy to Clipboard"><i class="fa-regular fa-copy"></i></button>
             </div>
-            <button class="btn primary-btn" onclick="generatePassword()">Generate Password</button>
+            <button class="btn primary-btn" onclick="generatePassword()">
+                <i class="fa-solid fa-bolt"></i> Generate Password
+            </button>
         </div>
 
-        <!-- 2. QR Code Generator Card -->
+        <!-- Tool 2: QR Code Generator -->
         <div class="card">
-            <h2>QR Code Generator</h2>
-            <input type="text" id="qrText" placeholder="Enter text or URL...">
-            <button class="btn primary-btn" onclick="generateQRCode()">Generate QR</button>
-            <div id="qrcode" class="qr-output"></div>
+            <div class="card-header">
+                <i class="fa-solid fa-qrcode"></i>
+                <h2>QR Code Generator</h2>
+            </div>
+            <p class="card-desc">Convert any link or text into a scannable high-res QR code.</p>
+            <div class="input-group">
+                <input type="text" id="qrInput" placeholder="Enter text or URL...">
+            </div>
+            <div id="qrcode" class="qr-preview"></div>
+            <button class="btn primary-btn" onclick="generateQRCode()">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Generate QR
+            </button>
         </div>
 
-        <!-- 3. Text Converter Card -->
+        <!-- Tool 3: Text Converter -->
         <div class="card">
-            <h2>Text Converter</h2>
-            <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
-            <div class="btn-group">
-                <button class="btn uppercase-btn" onclick="convertToUpperCase()">UPPERCASE</button>
-                <button class="btn lowercase-btn" onclick="convertToLowerCase()">lowercase</button>
+            <div class="card-header">
+                <i class="fa-solid fa-file-pen"></i>
+                <h2>Text Converter</h2>
+            </div>
+            <p class="card-desc">Manipulate casing, format text, and check character metrics.</p>
+            <div class="input-group">
+                <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+            </div>
+            <div class="btn-grid">
+                <button class="btn action-btn uppercase" onclick="convertToUpperCase()">
+                    <i class="fa-solid fa-arrow-up"></i> UPPER
+                </button>
+                <button class="btn action-btn lowercase" onclick="convertToLowerCase()">
+                    <i class="fa-solid fa-arrow-down"></i> lower
+                </button>
             </div>
         </div>
-
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 ProTools Hub. Built for creators & developers.</p>
+        <p>&copy; 2026 ProTools Hub. Crafted for peak efficiency.</p>
     </footer>
 
-    <!-- External JavaScript -->
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Copied to clipboard!</div>
+
     <script src="script.js"></script>
 </body>
 </html>
