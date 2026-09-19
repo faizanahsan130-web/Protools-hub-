@@ -1,211 +1,708 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProTools Hub — Professional Developer & Utility Suite</title>
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Lightning-fast, secure and free online utilities for developers, students and digital creators.">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS Linkage -->
-    <link rel="stylesheet" href="style.css">
-    <!-- QR Code Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <!-- jsPDF Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-</head>
-<body>
-    <div class="bg-glow"></div>
 
-    <!-- Top Announcement Banner -->
-    <div class="top-banner">
-        <span>🚀 15+ Free Developer Tools — No Signup Required</span>
+    <!-- Mobile Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>ProToolsHub - Free Online Developer Tools</title>
+
+    <meta name="description"
+        content="ProToolsHub provides fast, secure and free online developer tools including password generator, QR code generator, text converter, JSON formatter, Base64 encoder, URL encoder and more.">
+
+    <meta name="keywords"
+        content="developer tools, free developer tools, online tools, password generator, QR code generator, text converter, JSON formatter, Base64 encoder, URL encoder, UUID generator, hash generator">
+
+    <meta name="author" content="ProToolsHub">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#07111f">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://protools-hub-git-main-faizan-ahsan1.vercel.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ProToolsHub - Free Online Developer Tools">
+    <meta property="og:description"
+        content="Fast, secure and free online utilities for developers, students and digital creators.">
+    <meta property="og:url"
+        content="https://protools-hub-git-main-faizan-ahsan1.vercel.app/">
+    <meta property="og:site_name" content="ProToolsHub">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ProToolsHub - Free Online Developer Tools">
+    <meta name="twitter:description"
+        content="Free online developer utilities for coding, security, text processing and productivity.">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         TOP ANNOUNCEMENT
+    ====================================================== -->
+
+    <div class="announcement">
+        <span>⚡</span>
+        <strong>15+ Free Developer Tools</strong>
+        <span>— No Signup Required</span>
     </div>
 
-    <!-- Professional Navbar -->
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
     <header class="navbar">
-        <div class="nav-brand">
-            <i class="fa-solid fa-layer-group"></i>
-            <span>ProTools<span class="highlight">Hub</span></span>
-        </div>
-        <nav class="nav-links">
-            <a href="#tools" class="active">Tools</a>
-            <a href="#features">Features</a>
-            <a href="#about">About</a>
-            <a href="#faq">FAQ</a>
-        </nav>
-        <div class="nav-actions">
-            <a href="https://github.com" target="_blank" class="btn secondary-btn github-btn">
-                <i class="fa-brands fa-github"></i> GitHub
+
+        <div class="nav-container">
+
+            <!-- Logo -->
+
+            <a href="#home" class="logo">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </span>
+
+                <span>
+                    ProTools<span class="logo-highlight">Hub</span>
+                </span>
             </a>
+
+
+            <!-- Desktop Navigation -->
+
+            <nav class="nav-links">
+
+                <a href="#tools">
+                    Tools
+                </a>
+
+                <a href="#features">
+                    Features
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#faq">
+                    FAQ
+                </a>
+
+            </nav>
+
+
+            <!-- Right Side -->
+
+            <div class="nav-actions">
+
+                <a href="https://github.com/" target="_blank" class="github-btn">
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+
+                <button
+                    id="mobileMenuBtn"
+                    class="mobile-menu-btn"
+                    aria-label="Open menu">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
         </div>
+
+
+        <!-- Mobile Menu -->
+
+        <div id="mobileMenu" class="mobile-menu">
+
+            <a href="#tools">
+                Tools
+            </a>
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#faq">
+                FAQ
+            </a>
+
+            <a href="https://github.com/" target="_blank">
+                <i class="fa-brands fa-github"></i>
+                GitHub
+            </a>
+
+        </div>
+
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1 class="hero-title">Powerful Developer Tools, All in One Place</h1>
-        <p class="hero-sub">Fast, secure and free online utilities for developers, students and digital creators.</p>
-        <div class="hero-stats">
-            <span><i class="fa-solid fa-check-circle"></i> 15+ Tools</span>
-            <span><i class="fa-solid fa-shield-halved"></i> Free to Use</span>
-            <span><i class="fa-solid fa-bolt"></i> No Signup</span>
-        </div>
-    </section>
 
-    <!-- Search & Categories Bar -->
-    <section class="filter-section container">
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="toolSearch" placeholder="Search tools (e.g. password, QR, text)..." onkeyup="filterTools()">
-        </div>
-        <div class="category-tabs">
-            <button class="cat-btn active" onclick="filterCategory('all')">All Tools</button>
-            <button class="cat-btn" onclick="filterCategory('security')">Security</button>
-            <button class="cat-btn" onclick="filterCategory('generators')">Generators</button>
-            <button class="cat-btn" onclick="filterCategory('text')">Text & Docs</button>
-        </div>
-    </section>
+    <main>
 
-    <!-- Main Tools Grid -->
-    <main class="container tools-grid" id="toolsContainer">
-        
-        <!-- Tool 1: Password Generator -->
-        <div class="card" data-category="security generators" data-name="password generator">
-            <div class="card-header">
-                <i class="fa-solid fa-key"></i>
-                <h2>Password Generator</h2>
-            </div>
-            <p class="card-desc">Generate secure, randomized cryptographic passwords instantly.</p>
-            <div class="output-box">
-                <input type="text" id="passwordOutput" readonly placeholder="Click generate...">
-                <button id="copyPasswordBtn" title="Copy"><i class="fa-regular fa-copy"></i></button>
-            </div>
-            <button class="btn primary-btn" onclick="generatePassword()">
-                <i class="fa-solid fa-bolt"></i> Generate Password
-            </button>
-        </div>
 
-        <!-- Tool 2: QR Code Generator -->
-        <div class="card" data-category="generators" data-name="qr code generator">
-            <div class="card-header">
-                <i class="fa-solid fa-qrcode"></i>
-                <h2>QR Code Generator</h2>
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section id="home" class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    Free Developer Toolkit
+                </div>
+
+
+                <h1>
+                    Powerful Developer Tools,
+                    <span>All in One Place</span>
+                </h1>
+
+
+                <p class="hero-description">
+                    Fast, secure and free online utilities for developers,
+                    students and digital creators.
+                </p>
+
+
+                <!-- Stats -->
+
+                <div class="hero-stats">
+
+                    <div class="stat">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <strong>15+</strong>
+                        <span>Tools</span>
+                    </div>
+
+                    <div class="stat">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <strong>Free</strong>
+                        <span>To Use</span>
+                    </div>
+
+                    <div class="stat">
+                        <i class="fa-solid fa-bolt"></i>
+                        <strong>Fast</strong>
+                        <span>Processing</span>
+                    </div>
+
+                    <div class="stat">
+                        <i class="fa-solid fa-user-slash"></i>
+                        <strong>No</strong>
+                        <span>Signup</span>
+                    </div>
+
+                </div>
+
             </div>
-            <p class="card-desc">Convert link or text into a high-res scannable QR with custom label.</p>
-            <div class="input-group">
-                <input type="text" id="qrInput" placeholder="Enter text or URL...">
+
+        </section>
+
+
+
+        <!-- =====================================================
+             TOOLS SECTION
+        ====================================================== -->
+
+        <section id="tools" class="tools-section">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    DEVELOPER TOOLKIT
+                </span>
+
+                <h2>
+                    Everything You Need,
+                    <span>In One Place</span>
+                </h2>
+
+                <p>
+                    Simple, fast and practical tools for everyday
+                    development and productivity.
+                </p>
+
             </div>
-            <div id="qrcode" class="qr-preview"></div>
-            <div class="btn-grid">
-                <button class="btn primary-btn" onclick="generateQRCode()">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generate
+
+
+            <!-- Search -->
+
+            <div class="tools-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="toolSearch"
+                    placeholder="Search tools e.g. password, QR, JSON..."
+                    autocomplete="off">
+
+            </div>
+
+
+            <!-- Categories -->
+
+            <div class="categories" id="categories">
+
+                <button
+                    class="category-btn active"
+                    data-category="all">
+                    All Tools
                 </button>
-                <button class="btn action-btn" id="downloadQrBtn" onclick="downloadQRCode()" style="display:none;">
-                    <i class="fa-solid fa-download"></i> Download
+
+                <button
+                    class="category-btn"
+                    data-category="security">
+                    Security
                 </button>
+
+                <button
+                    class="category-btn"
+                    data-category="developer">
+                    Developer
+                </button>
+
+                <button
+                    class="category-btn"
+                    data-category="generator">
+                    Generators
+                </button>
+
+                <button
+                    class="category-btn"
+                    data-category="text">
+                    Text & Docs
+                </button>
+
+                <button
+                    class="category-btn"
+                    data-category="converter">
+                    Converters
+                </button>
+
             </div>
-        </div>
 
-        <!-- Tool 3: Text Converter -->
-        <div class="card" data-category="text" data-name="text converter uppercase lowercase">
-            <div class="card-header">
-                <i class="fa-solid fa-file-pen"></i>
-                <h2>Text Converter</h2>
-            </div>
-            <p class="card-desc">Manipulate casing, check character counts, and format text easily.</p>
-            <div class="input-group">
-                <textarea id="textInput" placeholder="Type or paste text here..."></textarea>
-            </div>
-            <div class="btn-grid">
-                <button class="btn action-btn" onclick="convertToUpperCase()">UPPER</button>
-                <button class="btn action-btn" onclick="convertToLowerCase()">lower</button>
-            </div>
-        </div>
 
-        <!-- Tool 4: PDF Generator -->
-        <div class="card" data-category="text generators" data-name="pdf generator document">
-            <div class="card-header">
-                <i class="fa-solid fa-file-pdf"></i>
-                <h2>PDF Generator</h2>
-            </div>
-            <p class="card-desc">Type your notes or document text and export directly as a clean PDF.</p>
-            <div class="input-group">
-                <textarea id="pdfInput" placeholder="Enter document content to export..."></textarea>
-            </div>
-            <button class="btn primary-btn" onclick="generatePDF()">
-                <i class="fa-solid fa-file-arrow-down"></i> Download PDF
-            </button>
-        </div>
 
-    </main>
+            <!-- =================================================
+                 TOOLS GRID
+            ================================================== -->
 
-    <!-- Privacy & Security Highlights Section -->
-    <section class="container info-section" id="features">
-        <div class="info-card">
-            <i class="fa-solid fa-shield-cat"></i>
-            <h3>Privacy Focused</h3>
-            <p>All processing happens locally or securely on client-side. No passwords or data are stored on servers.</p>
-        </div>
-        <div class="info-card">
-            <i class="fa-solid fa-bolt-lightning"></i>
-            <h3>Lightning Fast</h3>
-            <p>Built with optimized modern web technologies for instant execution without page reloads.</p>
-        </div>
-        <div class="info-card">
-            <i class="fa-solid fa-laptop-code"></i>
-            <h3>Developer First</h3>
-            <p>Designed for engineers, designers, and creators who need clean, reliable micro-utilities.</p>
-        </div>
-    </section>
+            <div class="tools-grid" id="toolsGrid">
 
-    <!-- About Section -->
-    <section class="container about-section" id="about">
-        <h2>Built for Peak Efficiency</h2>
-        <p>ProTools Hub is a collection of fast, practical and privacy-focused online tools designed to simplify everyday development and productivity tasks.</p>
-    </section>
 
-    <!-- FAQ Section -->
-    <section class="container faq-section" id="faq">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <h4>Are these tools completely free?</h4>
-            <p>Yes, all utilities on ProTools Hub are 100% free to use with no hidden charges.</p>
-        </div>
-        <div class="faq-item">
-            <h4>Do I need to create an account?</h4>
-            <p>No account or registration is required. Just open the site and use any tool instantly.</p>
-        </div>
-        <div class="faq-item">
-            <h4>Is my data or password stored?</h4>
-            <p>No. Passwords and text conversions are handled securely on your browser device.</p>
-        </div>
-    </section>
+                <!-- Password Generator -->
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <span>ProTools<span class="highlight">Hub</span></span>
-                <p>Empowering developers worldwide.</p>
-            </div>
-            <div class="footer-links">
-                <a href="#tools">Tools</a>
-                <a href="#features">Privacy</a>
-                <a href="#about">About</a>
-                <a href="#faq">FAQ</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 ProTools Hub. Crafted for peak efficiency by Faizan Ahsan.</p>
-        </div>
-    </footer>
+                <article
+                    class="tool-card"
+                    data-category="security generator"
+                    data-name="password generator">
 
-    <!-- Toast Notification -->
-    <div id="toast" class="toast">Action successful!</div>
+                    <div class="tool-icon blue">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+                    <h3>Password Generator</h3>
+
+                    <p>
+                        Generate secure randomized passwords
+                        instantly.
+                    </p>
+
+                    <div class="tool-body">
+
+                        <div class="input-copy">
+
+                            <input
+                                id="passwordOutput"
+                                type="text"
+                                placeholder="Click generate..."
+                                readonly>
+
+                            <button
+                                id="copyPassword"
+                                class="copy-btn"
+                                title="Copy password">
+
+                                <i class="fa-regular fa-copy"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="password-options">
+
+                            <label>
+                                Length
+                                <input
+                                    id="passwordLength"
+                                    type="range"
+                                    min="8"
+                                    max="32"
+                                    value="16">
+                            </label>
+
+                            <span id="lengthValue">16</span>
+
+                        </div>
+
+
+                        <div class="checkboxes">
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    id="includeUppercase"
+                                    checked>
+                                Uppercase
+                            </label>
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    id="includeLowercase"
+                                    checked>
+                                Lowercase
+                            </label>
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    id="includeNumbers"
+                                    checked>
+                                Numbers
+                            </label>
+
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    id="includeSymbols"
+                                    checked>
+                                Symbols
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        id="generatePassword"
+                        class="tool-btn">
+
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        Generate Password
+
+                    </button>
+
+                </article>
+
+
+
+                <!-- QR Generator -->
+
+                <article
+                    class="tool-card"
+                    data-category="generator"
+                    data-name="qr code generator">
+
+                    <div class="tool-icon purple">
+                        <i class="fa-solid fa-qrcode"></i>
+                    </div>
+
+                    <h3>QR Code Generator</h3>
+
+                    <p>
+                        Convert links or text into scannable
+                        QR codes.
+                    </p>
+
+                    <input
+                        id="qrInput"
+                        class="tool-input"
+                        type="text"
+                        placeholder="Enter text or URL...">
+
+                    <div
+                        id="qrPreview"
+                        class="qr-preview">
+
+                        <span>
+                            QR preview will appear here
+                        </span>
+
+                    </div>
+
+                    <button
+                        id="generateQR"
+                        class="tool-btn">
+
+                        <i class="fa-solid fa-qrcode"></i>
+                        Generate
+
+                    </button>
+
+                </article>
+
+
+
+                <!-- Text Converter -->
+
+                <article
+                    class="tool-card"
+                    data-category="text converter"
+                    data-name="text converter">
+
+                    <div class="tool-icon cyan">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+
+                    <h3>Text Converter</h3>
+
+                    <p>
+                        Manipulate casing, format text and
+                        check character metrics.
+                    </p>
+
+                    <textarea
+                        id="textInput"
+                        class="tool-textarea"
+                        placeholder="Type or paste your text here..."></textarea>
+
+
+                    <div class="text-actions">
+
+                        <button
+                            id="uppercaseBtn"
+                            class="small-btn">
+                            ↑ UPPER
+                        </button>
+
+                        <button
+                            id="lowercaseBtn"
+                            class="small-btn">
+                            ↓ lower
+                        </button>
+
+                        <button
+                            id="titlecaseBtn"
+                            class="small-btn">
+                            Title Case
+                        </button>
+
+                        <button
+                            id="clearTextBtn"
+                            class="small-btn">
+                            Clear
+                        </button>
+
+                    </div>
+
+
+                    <div class="text-stats">
+
+                        <span>
+                            Characters:
+                            <strong id="charCount">0</strong>
+                        </span>
+
+                        <span>
+                            Words:
+                            <strong id="wordCount">0</strong>
+                        </span>
+
+                        <span>
+                            Lines:
+                            <strong id="lineCount">0</strong>
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- JSON Formatter -->
+
+                <article
+                    class="tool-card"
+                    data-category="developer"
+                    data-name="json formatter">
+
+                    <div class="tool-icon orange">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+
+                    <h3>JSON Formatter</h3>
+
+                    <p>
+                        Format and validate JSON data
+                        with readable indentation.
+                    </p>
+
+                    <textarea
+                        id="jsonInput"
+                        class="tool-textarea code-area"
+                        placeholder='{"name":"ProToolsHub"}'></textarea>
+
+                    <button
+                        id="formatJSON"
+                        class="tool-btn">
+
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        Format JSON
+
+                    </button>
+
+                </article>
+
+
+
+                <!-- Base64 -->
+
+                <article
+                    class="tool-card"
+                    data-category="developer converter"
+                    data-name="base64 encoder decoder">
+
+                    <div class="tool-icon green">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+
+                    <h3>Base64 Encoder / Decoder</h3>
+
+                    <p>
+                        Encode or decode Base64 text
+                        quickly in your browser.
+                    </p>
+
+                    <textarea
+                        id="base64Input"
+                        class="tool-textarea"
+                        placeholder="Enter text..."></textarea>
+
+                    <div class="dual-buttons">
+
+                        <button
+                            id="encodeBase64"
+                            class="small-btn">
+                            Encode
+                        </button>
+
+                        <button
+                            id="decodeBase64"
+                            class="small-btn">
+                            Decode
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- URL Encoder -->
+
+                <article
+                    class="tool-card"
+                    data-category="developer converter"
+                    data-name="url encoder decoder">
+
+                    <div class="tool-icon pink">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+
+                    <h3>URL Encoder / Decoder</h3>
+
+                    <p>
+                        Encode or decode URLs safely
+                        and instantly.
+                    </p>
+
+                    <textarea
+                        id="urlInput"
+                        class="tool-textarea"
+                        placeholder="Enter URL..."></textarea>
+
+                    <div class="dual-buttons">
+
+                        <button
+                            id="encodeURL"
+                            class="small-btn">
+                            Encode
+                        </button>
+
+                        <button
+                            id="decodeURL"
+                            class="small-btn">
+                            Decode
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- UUID -->
+
+                <article
+                    class="tool-card"
+                    data-category="developer generator"
+                    data-name="uuid generator">
+
+                    <div class="tool-icon yellow">
+                        <i class="fa-solid fa-fingerprint"></i>
+                    </div>
+
+                    <h3>UUID Generator</h3>
+
+                    <p>
+                        Generate unique UUID v4 identifiers
+                        for your projects.
+                    </p>
+
+                    <div class="input-copy">
+
+                        <input
+                            id="uuidOutput"
+                            type="text"
+                            placeholder="Generate UUID..."
+                            readonly>
+
+                        <button
+                            id="copyUUID"
+                            class="copy-btn">
+
+                            <i clas
